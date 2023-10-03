@@ -16,6 +16,10 @@ export class AppComponent {
     avatar: 'https://source.unsplash.com/random'
   }
 
+  names: string[] = ['Nico', 'Julio', 'Santi'];
+
+  newName = '';
+
   togleButton () {
     this.btnDisable = !this.btnDisable; //Con el signo ! niegas el valor y lo cambia de true a false y de false a true
     this.name = "CarmFer";
@@ -38,5 +42,14 @@ export class AppComponent {
   change (event: Event) {
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
+  }
+
+  addName() {
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+
+  deleteName(index: number) {
+    this.names.splice(index, 1);
   }
 }
